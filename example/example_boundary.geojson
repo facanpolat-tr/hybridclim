@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "Example area near Torbali, Izmir, Turkiye"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[27.15, 38.00], [27.55, 38.00], [27.55, 38.30], [27.15, 38.30], [27.15, 38.00]]]
+      }
+    }
+  ]
+}

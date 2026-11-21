@@ -226,6 +226,9 @@ def heterogeneity(st, n_sim=500, seed=42):
     Z = {d: float((tau4_of(d, t3R) - t4R + B4) / s4) for d in ("GEV", "GLO", "GNO", "PE3", "GPA")}
     return dict(t_R=tR, t3_R=t3R, t4_R=t4R, H1=float(H[0]), H2=float(H[1]),
                 H1_class=h_class(H[0]), kappa=kap, n_sim=n_sim, Z=Z,
+                V_obs=[float(v) for v in Vobs], V_sim_mean=V.mean(axis=0).tolist(),
+                V_sim_sd=V.std(axis=0, ddof=1).tolist(),
+                tau4_fit={d: float(tau4_of(d, t3R)) for d in Z},
                 Z_accepted=[d for d, z in Z.items() if abs(z) <= 1.64])
 
 

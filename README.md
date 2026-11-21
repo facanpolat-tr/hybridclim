@@ -117,6 +117,21 @@ the catchment, not the administrative boundary.
 - Sub-daily durations (IDF) need station standard-duration maxima.
 - The correction surfaces resolve ~11 km features; finer detail comes from CHELSA and the DEM.
 
+## Tests
+
+```bash
+python -m unittest discover -s tests
+```
+
+- `test_rfa.py`, `test_validation.py`: unit tests of the analysis modules.
+- `test_rfa_reference.py`: regional frequency analysis against Hosking's R packages
+  `lmomRFA`/`lmom` on the Cascades region (reference values in `tests/data/lmomrfa_cascades.json`,
+  produced by `tests/data/make_lmomrfa_reference.R`).
+- `test_end_to_end.py`: the full workflow on a bundled 1.5 MB fixture (`tests/data/fixture`,
+  built by `tests/data/make_fixtures.py`) with network access disabled, compared with a stored
+  snapshot. After an intended change of results:
+  `HYBRIDCLIM_UPDATE_SNAPSHOT=1 python -m unittest tests.test_end_to_end`.
+
 ## Contributing and support
 
 Bug reports and feature requests: GitHub issues. Pull requests are welcome; please add a unit

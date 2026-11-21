@@ -92,7 +92,12 @@ The package has two command-line entry points and two importable modules:
 The two analysis modules have no GIS dependencies and are covered by unit tests that check
 L-moments against population values, the kappa distribution against its GEV, GLO and GPA
 special cases, the discordancy identity $\sum_i D_i = N$, and the behaviour of $H_1$ on
-simulated homogeneous and heterogeneous regions. Design choices that affect safety are
+simulated homogeneous and heterogeneous regions. The regional frequency routines are also
+tested against Hosking's own R implementation [`lmomRFA`, @lmomRFA] on the Cascades region of
+@hoskingwallis1997: discordancy and kappa parameters agree to within $10^{-5}$, the GEV growth
+curve to 0.1 %, and $H$ and $Z$ within Monte Carlo error. An offline end-to-end test runs the
+complete workflow on a bundled 1.5 MB fixture with network access disabled and compares the
+results with a stored snapshot; all tests run on every commit through GitHub Actions. Design choices that affect safety are
 explicit and logged: a GEV shape bounded above falls back to Gumbel, a region with
 $H_1 \ge 2$, a rejected GEV or discordant sites raise warnings, and design maps produced
 without station correction carry a printed warning that they are lower bounds.

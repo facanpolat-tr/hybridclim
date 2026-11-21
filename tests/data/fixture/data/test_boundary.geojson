@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"name": "Offline test area"}, "geometry": {"type": "Polygon", "coordinates": [[[27.3, 38.1], [27.4, 38.1], [27.4, 38.2], [27.3, 38.2], [27.3, 38.1]]]}}]}

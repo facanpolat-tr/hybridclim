@@ -2,6 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "HybridClim: station-anchored, DEM-resolution temperature, precipitation and design-rainfall surfaces from CHELSA and ERA5"
 version: 1.0.0
+doi: "10.5281/zenodo.24430090"
+date-released: "2026-11-22"
 authors:
   - family-names: "Canpolat"
     given-names: "Fethi Ahmet"

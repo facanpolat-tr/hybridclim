@@ -1,5 +1,8 @@
 # HybridClim
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24430090.svg)](https://doi.org/10.5281/zenodo.24430090)
+[![tests](https://github.com/facanpolat-tr/hybridclim/actions/workflows/tests.yml/badge.svg)](https://github.com/facanpolat-tr/hybridclim/actions/workflows/tests.yml)
+
 Station-anchored, DEM-resolution (default 30 m, UTM) **annual temperature, annual precipitation
 and 24-hour design-rainfall rasters** for flood models (HEC-HMS, HEC-RAS 2D, SWAT, SCS-CN …),
 built from CHELSA × ERA5-Land/ERA5 × DEM, with built-in Hosking–Wallis regional frequency
@@ -140,5 +143,11 @@ Questions: facanpolat@hotmail.com.
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff). Data: CHELSA v2.1 (Karger et al., 2017), ERA5 (Hersbach et
+Canpolat, F. A. (2026). *HybridClim: station-anchored, DEM-resolution temperature, precipitation
+and design-rainfall surfaces from CHELSA and ERA5* (v1.0.0). Zenodo.
+https://doi.org/10.5281/zenodo.24430090
+
+This concept DOI always resolves to the latest version; the v1.0.0 archive is
+[10.5281/zenodo.24430091](https://doi.org/10.5281/zenodo.24430091). See also
+[CITATION.cff](CITATION.cff). Data: CHELSA v2.1 (Karger et al., 2017), ERA5 (Hersbach et
 al., 2020), ERA5-Land (Muñoz-Sabater et al., 2021), Copernicus DEM GLO-30, Open-Meteo.

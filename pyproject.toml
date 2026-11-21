@@ -11,8 +11,6 @@ requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Fethi Ahmet Canpolat" }]
 
-[project.urls]
-Repository = "https://github.com/facanpolat-tr/hybridclim"
 keywords = ["design rainfall", "regional frequency analysis", "L-moments", "ERA5", "CHELSA", "downscaling", "flood"]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -32,6 +30,9 @@ dependencies = [
     "matplotlib>=3.8",
     "requests>=2.31",
 ]
+
+[project.urls]
+Repository = "https://github.com/facanpolat-tr/hybridclim"
 
 [project.scripts]
 hybridclim-download = "hybridclim.download:main"

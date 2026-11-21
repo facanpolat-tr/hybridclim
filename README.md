@@ -136,7 +136,7 @@ python -m unittest discover -s tests
 
 Bug reports and feature requests: GitHub issues. Pull requests are welcome; please add a unit
 test under `tests/` and make sure `python -m unittest discover -s tests` passes.
-Questions: TODO (maintainer e-mail).
+Questions: facanpolat@hotmail.com.
 
 ## Citation
 

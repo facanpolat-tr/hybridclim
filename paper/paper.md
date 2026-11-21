@@ -13,7 +13,7 @@ authors:
     orcid: 0000-0002-6084-7735
     affiliation: 1
 affiliations:
-  - name: TODO Institution, Country
+  - name: Fırat University, Elazığ, Türkiye
     index: 1
 date: 22 November 2026
 bibliography: paper.bib
@@ -54,15 +54,32 @@ on how far reanalysis-based design values can substitute for gauges.
 
 # State of the field
 
-Global climatologies (CHELSA, WorldClim) and reanalyses (ERA5, ERA5-Land) are distributed as
-data, and downscaling toolkits such as `climate4R` [@iturbide2019] focus on statistical
-downscaling of climate model output rather than design-rainfall estimation. Regional frequency
-analysis with L-moments is implemented in the R packages `lmom` and `lmomRFA` [@lmomRFA] and in
-Hosking's original Fortran routines, but these operate on station series and do not produce
-gridded surfaces. To our knowledge no open tool combines (i) change-factor coupling of a
-station-corrected climatology with a reanalysis, (ii) DEM-resolution downscaling, (iii)
-Hosking–Wallis regional frequency analysis with full diagnostics and (iv) built-in
-multi-product station validation in one reproducible workflow.
+*High-resolution climate data and downscaling tools.* Global climatologies (CHELSA, WorldClim)
+and reanalyses (ERA5, ERA5-Land) are distributed as data, and CHELSA-W5E5 [@karger2023w5e5]
+provides daily 1 km forcing. Several tools derive local climate from these sources:
+`chelsa-cmip6` [@karger2023cmip6] applies the delta-change method to CHELSA for user-defined
+regions and future periods, ClimateDT [@marchi2024] downscales CHELSA-based monthly series
+with a local lapse rate through a web portal, `KrigR` [@kusch2022] downloads ERA5(-Land) and
+downscales it by kriging in R, and `climate4R` [@iturbide2019] focuses on statistical
+downscaling of climate model output. These tools target climatologies at about 1 km and do
+not estimate design rainfall.
+
+*Regional frequency analysis.* L-moment regional frequency analysis is implemented in the R
+packages `lmom` and `lmomRFA` [@lmomRFA], in Hosking's original Fortran routines and their
+Python port `lmoments3` [@lmoments3], and in `RainFA` [@rainfa], which adds clustering and
+Hosking–Wallis tests for gauge series. All of them operate on station series and do not
+produce gridded surfaces. @rivoire2022 mapped high return levels of daily ERA5 precipitation
+over Europe by regionalised extreme-value models at the native 0.25° grid, and
+@touloumidis2026 built a Google Earth Engine workflow for ERA5-Land design rainfall, showing
+that gauge-based design values exceed ERA5-Land values by 13–46 %; neither downscales to
+terrain resolution or corrects with stations.
+
+To our knowledge no open tool combines (i) change-factor coupling of a station-corrected
+climatology with a reanalysis, (ii) DEM-resolution downscaling, (iii) Hosking–Wallis regional
+frequency analysis with full diagnostics and (iv) built-in multi-product station validation
+in one reproducible workflow. `HybridClim` reuses established methods rather than proposing a
+new downscaling algorithm; its contribution is to chain them with explicit, logged choices and
+error estimates for flood-model inputs.
 
 # Software design
 
@@ -104,19 +121,25 @@ without station correction carry a printed warning that they are lower bounds.
 
 # Research impact statement
 
-TODO: describe current use (projects, theses, agencies) and planned studies, e.g. a
-validation of hybrid design rainfall against national gauge networks across contrasting
-climates.
+`HybridClim` is being used to prepare catchment-scale climate and design-rainfall inputs
+for hydrological modelling studies in Türkiye. A companion research article, currently in
+preparation, validates the hybrid temperature, precipitation and T-year design-rainfall
+surfaces against the station network of the Turkish State Meteorological Service (MGM)
+across contrasting climate regions. Because the workflow needs only open global data
+(CHELSA, ERA5/ERA5-Land, Copernicus DEM) and an optional station table, it is aimed at
+hydrologists and design engineers who must supply DEM-resolution climate inputs to models
+such as HEC-HMS, HEC-RAS 2D and SWAT in regions where gauge data are sparse or restricted.
 
 # AI usage disclosure
 
-TODO: state which parts of the code, tests and manuscript were drafted or revised with
-AI assistance (e.g. Claude, Anthropic) and confirm that the authors reviewed and take
-responsibility for all content.
+Parts of the code, the unit tests, the documentation and this manuscript were drafted or
+revised with the assistance of Claude Opus 5.5 (Anthropic). The author designed the method,
+reviewed, tested and edited all AI-assisted output, and takes full responsibility for the
+content of the software and the paper.
 
 # Acknowledgements
 
 We acknowledge the providers of CHELSA, ERA5/ERA5-Land (Copernicus Climate Change Service),
-the Copernicus DEM, and the Open-Meteo API. TODO: funding.
+the Copernicus DEM, and the Open-Meteo API. This work received no specific funding.
 
 # References

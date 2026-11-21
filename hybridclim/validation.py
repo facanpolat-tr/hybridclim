@@ -68,8 +68,8 @@ def _nearest(df, lat, lon):
 
 
 def _pixel(arr, tr, x, y):
-    c = int((x - tr.c) / tr.a)
-    r = int((y - tr.f) / tr.e)
+    c = int(np.floor((x - tr.c) / tr.a))
+    r = int(np.floor((y - tr.f) / tr.e))
     if 0 <= r < arr.shape[0] and 0 <= c < arr.shape[1]:
         return float(arr[r, c])
     return np.nan

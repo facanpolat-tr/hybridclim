@@ -33,8 +33,6 @@ import pandas as pd
 import requests
 from shapely.geometry import Point, shape
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
-                    datefmt="%H:%M:%S")
 log = logging.getLogger(__name__)
 
 API_URL = "https://archive-api.open-meteo.com/v1/archive"
@@ -123,6 +121,8 @@ def main():
                     help="Also download the last N years of hourly ERA5 precipitation for f24 (0 = skip)")
     ap.add_argument("--force", action="store_true", help="Re-download existing files")
     args = ap.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
+                        datefmt="%H:%M:%S")
 
     data_dir = Path(args.data_dir).resolve()
     data_dir.mkdir(parents=True, exist_ok=True)

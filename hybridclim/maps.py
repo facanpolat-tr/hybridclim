@@ -69,8 +69,6 @@ from . import rfa
 from . import validation as val
 from .download import BOUNDARY_SUFFIX
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
-                    datefmt="%H:%M:%S")
 log = logging.getLogger(__name__)
 
 DEFAULT_DEM = os.environ.get("HYBRIDCLIM_DEM", "copernicus")
@@ -379,8 +377,8 @@ def station_correction(st, fields, to_utm, gx, gy, tr):
     Returns (report, long table of LOOCV predictions).
     """
     sx, sy = to_utm.transform(st["lon"].values, st["lat"].values)
-    col = ((np.array(sx) - tr.c) / tr.a).astype(int)
-    row = ((np.array(sy) - tr.f) / tr.e).astype(int)
+    col = np.floor((np.array(sx) - tr.c) / tr.a).astype(int)
+    row = np.floor((np.array(sy) - tr.f) / tr.e).astype(int)
     inn = (row >= 0) & (row < gx.shape[0]) & (col >= 0) & (col < gx.shape[1])
     report, loo_rows = {}, []
     for key, (colname, _, mult) in val.VARS.items():
@@ -533,6 +531,8 @@ def main():
                     help="Use stations for validation only; do not correct the maps")
     ap.add_argument("--out", help="Output folder (default: ./output/<region>)")
     args = ap.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
+                        datefmt="%H:%M:%S")
     if args.growth == "stations" and not args.stations_ams:
         raise SystemExit("--growth stations requires --stations-ams.")
     if args.stations_ams and not args.stations:

@@ -6,6 +6,8 @@ authors:
   - family-names: "Canpolat"
     given-names: "Fethi Ahmet"
     orcid: "https://orcid.org/0000-0002-6084-7735"
+    affiliation: "Fırat University, Türkiye"
+    email: "facanpolat@hotmail.com"
 repository-code: "https://github.com/facanpolat-tr/hybridclim"
 license: MIT
 keywords:

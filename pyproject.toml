@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "Station-anchored, DEM-resolution temperature, precipitation and design-rainfall surfaces from CHELSA and ERA5"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "TODO: choose an OSI licence (e.g. MIT) and add a LICENSE file" }
+license = { text = "MIT" }
 authors = [{ name = "Fethi Ahmet Canpolat" }]
 
 [project.urls]
@@ -16,6 +16,7 @@ Repository = "https://github.com/facanpolat-tr/hybridclim"
 keywords = ["design rainfall", "regional frequency analysis", "L-moments", "ERA5", "CHELSA", "downscaling", "flood"]
 classifiers = [
     "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Atmospheric Science",
     "Topic :: Scientific/Engineering :: Hydrology",

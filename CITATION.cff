@@ -7,7 +7,7 @@ authors:
     given-names: "Fethi Ahmet"
     orcid: "https://orcid.org/0000-0002-6084-7735"
 repository-code: "https://github.com/facanpolat-tr/hybridclim"
-license: TODO
+license: MIT
 keywords:
   - design rainfall
   - regional frequency analysis

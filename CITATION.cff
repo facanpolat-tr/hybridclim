@@ -5,7 +5,7 @@ version: 1.0.0
 authors:
   - family-names: "Canpolat"
     given-names: "Fethi Ahmet"
-    # TODO: orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0000-0002-6084-7735"
 repository-code: "https://github.com/facanpolat-tr/hybridclim"
 license: TODO
 keywords:

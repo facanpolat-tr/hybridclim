@@ -10,7 +10,7 @@ tags:
   - downscaling
 authors:
   - name: Fethi Ahmet Canpolat
-    orcid: 0000-0000-0000-0000  # TODO
+    orcid: 0000-0002-6084-7735
     affiliation: 1
 affiliations:
   - name: TODO Institution, Country

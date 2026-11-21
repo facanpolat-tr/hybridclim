@@ -8,3 +8,5 @@ venv/
 *.tif.aux.xml
 *.ovr
 !tests/data/fixture/**/*.tif
+build/
+dist/
